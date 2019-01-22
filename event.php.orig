@@ -1,0 +1,271 @@
+
+<!DOCTYPE HTML>
+
+<?php
+
+require 'db_connexion/pdo.php'
+
+?>
+
+<html>
+<?php session_start(); 
+if(!isset($_GET['event'])){
+	
+	header('Location: eventlist.php');
+}
+
+
+if (!empty($_COOKIE['pseudo']) AND !empty($_COOKIE['session_id'])){
+	$req = $bdd->prepare("SELECT * FROM users WHERE session_id=:sessionID AND first_name=:pseudo");
+    $req->execute(array(':sessionID' => $_COOKIE['session_id'], 
+                        ':pseudo' => $_COOKIE['pseudo']));
+    $user=$req->fetch();
+
+
+    $req = $bdd->prepare("SELECT * FROM evenement WHERE name=:event");
+    $req->execute(array(':event' => $_GET['event']));
+    $donnees = $req->fetch();
+
+    $req = $bdd->prepare("SELECT * FROM signin WHERE id=:eventID AND id_users=:userID");
+    $req->execute(array(':eventID' => $donnees['id'], ':userID' => $user['id']));
+    $data =$req->fetch();
+
+    if (is_null($data['id'])){
+    	$isSuscribed=false;
+    }
+    else{
+    	$isSuscribed=true;
+    }
+}
+else{
+	$isSuscribed=false;
+}
+
+
+	
+?>
+
+	<head>
+		<title>Event</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/profilpic.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="landing">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="index.php">BDE Exia</a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="index.php">Home</a></li>
+							<li>
+								<a href="eventlist.php">Events</a>
+								<ul>
+									<li><a href="eventlist.php">Liste Events</a></li>
+									<li><a href="ideabox.php">Boîte à idée</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="shop_cat.php">Boutique</a>
+								<ul>
+									<li><a href="shop_cat.php">Catégorie</a>
+										<ul>
+											<li><a href="products.php?cat=Nourriture">Nourriture</a></li>
+											<li><a href="products.php?cat=Hardware">Hardware</a></li>
+											<li><a href="products.php?cat=Vetement">Vêtement</a></li>
+											<li><a href="products.php?cat=Autre">Autre</a></li>
+										</ul>
+									</li>
+									<li><a href="panier.php">Panier</a></li>
+								</ul></li>
+							<li><a href="login.php" class="button special"><?php if(isset($_COOKIE['pseudo']))
+							{
+								echo 'welcome '.$_COOKIE['pseudo'];
+							}else{
+								echo "Connexion / Inscription";
+							} ?>
+								
+							</a><?php  
+							if (isset($_COOKIE['pseudo'])) {
+								echo "<ul>",
+									"<li><a href='profil.php'>Mon Profil</a></li>",
+									"<li><a href='logout.php'>Deconnexion</a></li>",
+								"</ul>";
+							}
+								
+								?>
+							</li>
+						</ul>
+					</nav> 
+				</header>
+
+			
+			<?php
+
+			$req = $bdd->prepare("SELECT * FROM evenement WHERE name=:event");
+			$req->execute(array(':event' => $_GET['event']));
+
+			$donnees = $req->fetch()
+			?>
+
+			<!-- Four -->
+
+			
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2><?php echo $donnees['name'];?></h2>
+							
+						</header>
+
+						<!-- Content -->
+							<section id="content">
+								<a href="#" class="image fit"><img src=<?php echo $donnees['picture'];?> alt="" /></a>
+								<ul class="actions fit big">
+									<li>
+										<?php 
+										
+										
+										if($isSuscribed){
+											echo "<a href='actions/action_exitevent.php?event=";
+											echo $donnees['name'];
+											echo "' class='button fit big'>";
+											echo "se désinscrire";
+										}
+										else{
+											echo "<a href='actions/action_gotoevent.php?event=";
+											echo $donnees['name'];
+											echo "' class='button fit big'>";
+											echo "Aller à l'évenement";
+										}
+										echo "</a>";
+										?>
+									</li>
+
+								</ul>
+								<center>
+									<?php 
+										if (!empty($_GET['error'])) {
+											if($_GET["error"]==="notconnected"){
+												echo "Please connect first !";
+											}
+											elseif ($_GET["error"]==="suscribed") {
+												echo "Suscribed successfully";
+											}
+											elseif ($_GET["error"]==="removed") {
+												echo "Unsuscribed oowwwwww T-T";
+											}
+										}
+									 ?>
+								</center>
+								<h3>Description</h3>
+								<p><?php echo $donnees['description'];?></p>
+								
+							</section>
+
+					</div>
+				</div>
+
+			<header class="major">
+				<h2>Comment Zone</h2>				
+			</header>
+			<!-- Comment Zone -->
+
+			<div id="main" class="wrapper style1">
+				<div class="container">
+			<?php 
+				$req = $bdd->prepare('SELECT * FROM commentaires where id_evenement=:eventID');
+				$req->execute(array(':eventID' => $donnees['id']));
+					
+				
+				echo '<div class="ninjaflex">';
+				while ($donnees = $req->fetch())
+				{
+					$requ = $bdd->prepare('SELECT first_name, profile_pic FROM users where id=:comUserID');
+					$requ->execute(array(':comUserID' => $donnees['id_users']));
+					$u=$requ->fetch();
+					echo "
+<<<<<<< HEAD
+					<span class='image left pic'><img src='images/motoi.jpg' alt='' style='width:66%; height:auto; margin-left:16.5%' /></span>
+					<p style='margin-bottom:10%'><b>".$u['first_name']." : </b>".$donnees['comments']."</p>";
+=======
+					<div class='boxcomm'><div class='ninjaflex2'><div class='boximg'>
+					<img src='".$u['profile_pic']."' class='profilpic' alt='' /></div>
+					<div><p style='text-align: justify;'><b>".$u['first_name']." : </b>".$donnees['comments']."</p></div></div></div>";
+>>>>>>> 3560ad1b0128d79b3676eaceb07ac32b99cd317b
+				}
+				echo '</div>'
+
+			?>
+				
+
+			<!-- Add comment -->
+
+
+			<?php echo "<form method='post' action='actions/action_comment.php?event=".$_GET['event']."'>";  ?>
+				<div class="row uniform 50%">
+					<div class="10u 12u$(xsmall)">
+						<input type="text" name="comment" id="comment" value="" placeholder="your comment here" />
+					</div>
+				<ul class="actions">
+					<li><input type="submit" value="Submit" class="special" /></li>
+				</ul>
+			
+
+
+
+			<center>
+			<?php 
+				if (!empty($_GET['error2'])) {
+					if($_GET["error2"]==="notconnected"){
+						echo "Please connect first !";
+					}
+					elseif ($_GET["error2"]==="commented") {
+						echo "Comment added successfully";
+					}
+				}
+			 ?>
+			 </center>
+			
+
+
+
+
+				</div>
+			</div>
+			
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; BDECesi. All rights reserved.</li>
+						<li>Contact us</li>
+						<li>Mention Légales</li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
