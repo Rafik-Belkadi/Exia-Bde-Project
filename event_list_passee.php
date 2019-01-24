@@ -69,7 +69,7 @@ require 'db_connexion/pdo.php'
 						</header>
 						<p>". $donnees['description'] ."</p>
 						<ul class=\"actions\">
-							<li><a href=\"event.php?event=".$donnees['name']."\" class=\"button\">Accès à l'event</a></li>
+							<li><a href=\"event.php?event=".$donnees['name']."&isPasse=1\" class=\"button\">Accès à l'event</a></li>
 						</ul>
 					</div>
 					<a href=\"#". $idd ."\" class=\"goto-next scrolly\">Next</a>
