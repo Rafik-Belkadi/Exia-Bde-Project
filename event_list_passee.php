@@ -44,7 +44,7 @@ require 'db_connexion/pdo.php'
 			<?php 
 
 
-			$req = $bdd->prepare("SELECT * FROM evenement WHERE evenement=1 AND   metting <= NOW() ");
+			$req = $bdd->prepare("SELECT * FROM evenement WHERE evenement=1 AND   metting < DATE (NOW()) ");
 			$req->execute();
 
 			$pres="";
