@@ -138,20 +138,31 @@ else{
 									<li>
 										<?php 
 										
+										if($_GET['isPasse'] == 1){
+
+											echo "<a href='image.php?eventid=".$donnees["id"];
+												echo $donnees['name'];
+												echo "' class='button fit big'>";
+												echo "Télécharger Images";
+												echo "</a>";
+
+										}else{
+											if($isSuscribed){
+												echo "<a href='actions/action_exitevent.php?event=";
+												echo $donnees['name'];
+												echo "' class='button fit big'>";
+												echo "se désinscrire";
+											}
+											else{
+												echo "<a href='actions/action_gotoevent.php?event=";
+												echo $donnees['name'];
+												echo "' class='button fit big'>";
+												echo "S'inscrire";
+											}
+											echo "</a>";
+										}
+
 										
-										if($isSuscribed){
-											echo "<a href='actions/action_exitevent.php?event=";
-											echo $donnees['name'];
-											echo "' class='button fit big'>";
-											echo "se désinscrire";
-										}
-										else{
-											echo "<a href='actions/action_gotoevent.php?event=";
-											echo $donnees['name'];
-											echo "' class='button fit big'>";
-											echo "Aller à l'évenement";
-										}
-										echo "</a>";
 										?>
 									</li>
 
