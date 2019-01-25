@@ -12,7 +12,7 @@
 									<ul>
 											<li><a href="event_list_passee.php">Events Passé</a></li>
 											<li><a href="event_list_future.php">Events Future</a></li>
-											<li><a href="event_list_future.php">Event du Mois</a></li>
+											<li><a href="event_list_du_mois.php">Event du Mois</a></li>
 
 										</ul>
 									<li>
