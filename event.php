@@ -139,19 +139,27 @@ else{
 										<?php 
 										
 										
-										if($isSuscribed){
-											echo "<a href='actions/action_exitevent.php?event=";
-											echo $donnees['name'];
-											echo "' class='button fit big'>";
-											echo "se désinscrire";
+										if($_GET['isPasse'] == 1){
+											echo "<a href='image.php?eventid=".$donnees["id"];
+												echo $donnees['name'];
+												echo "' class='button fit big'>";
+												echo "Télécharger Images";
+												echo "</a>";
+										}else if(empty($_GET['isPasse'])){
+											if($isSuscribed){
+												echo "<a href='actions/action_exitevent.php?event=";
+												echo $donnees['name'];
+												echo "' class='button fit big'>";
+												echo "se désinscrire";
+											}
+											else{
+												echo "<a href='actions/action_gotoevent.php?event=";
+												echo $donnees['name'];
+												echo "' class='button fit big'>";
+												echo "S'inscrire";
+											}
+											echo "</a>";
 										}
-										else{
-											echo "<a href='actions/action_gotoevent.php?event=";
-											echo $donnees['name'];
-											echo "' class='button fit big'>";
-											echo "Aller à l'évenement";
-										}
-										echo "</a>";
 										?>
 									</li>
 
@@ -228,7 +236,7 @@ else{
 									if(is_null($like['id_user'])){
 										echo "<img id='love".$donnees['id']."' src='images/emptyheart.jpg' class='likes' alt='' onclick='myLove(".$donnees['id'].")'/>";
 									}
-									else{
+									else{ 
 										echo "<img id='love".$donnees['id']."' src='images/fullheart.jpg' class='likes' alt='' onclick='myLove(".$donnees['id'].")'/>";
 									}
 									

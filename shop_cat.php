@@ -24,8 +24,55 @@ require 'db_connexion/pdo.php'
 			max-width: 256px; 
     		max-height: 170.656px;
 		}
+
+		.floating{
+			position:fixed;
+			width:60px;
+			height:60px;
+			bottom:40px;
+			right:40px;
+			background-color:#E44C65;
+			color:#FFF;
+			border-radius:50px;
+			text-align:center;
+			box-shadow: 2px 2px 3px #000000;
+			z-index: 100;
+		}
+
+		.floating:hover{
+			background-color: #E76278;
+			color: #FFF;
+		}
+
+		#pdf{
+			position:fixed;
+			max-width: 400px;
+			height:60px;
+			bottom:80px;
+			right:40px;
+			color:#FFF;
+			border-radius:50px;
+			text-align:center;
+			box-shadow: 2px 2px 3px #000000;
+			z-index: 100;
+			opacity: 0;
+  			visibility: hidden;
+			-webkit-transition: opacity 600ms, visibility 600ms;
+ 			transition: opacity 600ms, visibility 600ms;
+		}
+
+		#pdf:hover{
+			
+			color: #FFF;
+		}
+		.searchbutton:hover #pdf {
+			visibility: visible;
+  			opacity: 1;
+		}
 		</style>
 	</head>
+
+	
 	<body class="landing">
 		<div id="page-wrapper">
 
@@ -49,6 +96,12 @@ require 'db_connexion/pdo.php'
 					</div>
 					<a href="#one" class="goto-next scrolly">Next</a>
 				</section>
+			<form action="searchmagasin.php" method="post">
+				<div class="searchbutton">
+					<input type="text" name="pdf"  id="pdf" value="" placeholder="Rechercher" />
+					<button type="submit" id="search" style="bottom:80px;" class="floating"><i class="fa-search fa my-float"></i></button>
+				</div>
+			</form>
 
 				<?php  if($data['bde'] == 1 ){ ?>
 					<a href="ajouter_produit.php" class="float"><i class="fa-plus fa my-float"></i></a>
@@ -156,6 +209,8 @@ require 'db_connexion/pdo.php'
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+
+			
 
 	</body>
 </html>

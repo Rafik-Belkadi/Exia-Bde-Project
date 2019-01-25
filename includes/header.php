@@ -6,7 +6,13 @@
 							<li>
 								<a href="eventlist.php">Evenements</a>
 								<ul>
-									<li><a href="eventlist.php">Liste Events</a></li>
+									<li>
+									<a href="eventlist.php">Liste Events</a>
+									
+									<ul>
+											<li><a href="event_list_passee.php">Events Passé</a></li>
+											<li><a href="event_list_future.php">Events Future</a></li>
+										</ul>
 									<li>
 										<a href="ideabox.php">Boîte à idée</a>
 										<ul>

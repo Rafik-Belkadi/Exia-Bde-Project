@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>Login</title>
+		<title>Idee</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -23,12 +23,12 @@
 				<section id="four" class="wrapper style1 special fade-up">
 					<div class="container">
 						<header class="major">
-						<h2>Créer un event</h2>
+						<h2>Proposez une idée</h2>
 						</header>
 					</div>
 				</section>
 
-	<center><h3>Create an event</h3></center>
+	<center><h3>Proposez une idée</h3></center>
 	<form method="post" action="actions/action_addidea.php">
 		<div class="row uniform 50%">
 			<div class="4u"></div>
