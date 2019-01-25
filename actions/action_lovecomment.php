@@ -10,8 +10,28 @@ require '../db_connexion/pdo.php';
         $user=$req->fetch();
 
 
-    	$req = $bdd->prepare('INSERT INTO likes(id_commentaires,id_user) VALUES(:commentID,:userID)');
-        $req->execute(array(':commentID' => $_GET['comid'] , ':userID' => $user['id']));
+        $req2 = $bdd->prepare("SELECT * FROM likes WHERE id_commentaires=".$_GET['comid']." AND id_user=".$user['id']."");
+        $req2->execute();
+        
+        $user2=$req2->fetch();
+
+        
+
+        if(!empty($user2))
+        {
+            $req3 = $bdd->prepare("DELETE FROM likes WHERE id_commentaires=".$_GET['comid']." AND id_user=".$user['id']);
+            $req3->execute();
+            
+            echo " c supp";
+
+        }else{
+            $req4 = $bdd->prepare('INSERT INTO likes(id_commentaires,id_user) VALUES(:commentID,:userID)');
+            $req4->execute(array(':commentID' => $_GET['comid'] , ':userID' => $user['id']));
+
+            
+
+        }
+    	
 
             
         $req->closeCursor();
@@ -22,6 +42,6 @@ require '../db_connexion/pdo.php';
 
 
 
-header("Location: ../event.php?event=".$_GET['event']);
+ header("Location: ../event.php?event=".$_GET['event']);
 
  ?>
