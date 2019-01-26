@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 e<?php
 require 'db_connexion/pdo.php'
+=======
+<?php
+
+require 'db_connexion/pdo.php'
+
+>>>>>>> a9617404f70324002eac31c79807914fc2c3fa27
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -40,6 +47,7 @@ require 'db_connexion/pdo.php'
 
 			<!-- Two -->
 			<?php 
+<<<<<<< HEAD
 			$req = $bdd->prepare("SELECT * FROM evenement WHERE evenement=1 AND   metting < DATE (NOW()) ");
 			$req->execute();
 			$pres="";
@@ -47,11 +55,29 @@ require 'db_connexion/pdo.php'
 			$idd=2;
 			while ($donnees = $req->fetch())
 			{
+=======
+
+
+			$req = $bdd->prepare("SELECT * FROM evenement WHERE evenement=1 AND   metting < DATE (NOW()) ");
+			$req->execute();
+
+			$pres="";
+			$id=1;
+			$idd=2;
+
+			while ($donnees = $req->fetch())
+			{
+
+>>>>>>> a9617404f70324002eac31c79807914fc2c3fa27
 				if ($id%2 == 0) {
 					$pres = "3 right";
 				} else{
 					$pres = "2 left";
 				}
+<<<<<<< HEAD
+=======
+
+>>>>>>> a9617404f70324002eac31c79807914fc2c3fa27
 				echo "<section id=\"". $id ."\" class=\"spotlight style". $pres ."\">
 					<span class=\"image fit main\"><img src=\"". $donnees['picture'] ."\" alt=\"\" /></span>
 					<div class=\"content\">
@@ -66,10 +92,18 @@ require 'db_connexion/pdo.php'
 					</div>
 					<a href=\"#". $idd ."\" class=\"goto-next scrolly\">Next</a>
 				</section>";
+<<<<<<< HEAD
+=======
+
+>>>>>>> a9617404f70324002eac31c79807914fc2c3fa27
 				$id=$id+1;
 				$idd=$idd+1;
 				
 			}
+<<<<<<< HEAD
+=======
+
+>>>>>>> a9617404f70324002eac31c79807914fc2c3fa27
 			$req->closeCursor();
 			 ?>
 
@@ -91,4 +125,8 @@ require 'db_connexion/pdo.php'
 			<script src="assets/js/main.js"></script>
 
 	</body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> a9617404f70324002eac31c79807914fc2c3fa27

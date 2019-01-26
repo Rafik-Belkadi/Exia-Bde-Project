@@ -138,14 +138,24 @@ else{
 									<li>
 										<?php 
 										
+<<<<<<< HEAD
 										
 										if($_GET['isPasse'] == 1){
+=======
+										if($_GET['isPasse'] == 1){
+
+>>>>>>> a9617404f70324002eac31c79807914fc2c3fa27
 											echo "<a href='image.php?eventid=".$donnees["id"];
 												echo $donnees['name'];
 												echo "' class='button fit big'>";
 												echo "Télécharger Images";
 												echo "</a>";
+<<<<<<< HEAD
 										}else if(empty($_GET['isPasse'])){
+=======
+
+										}else{
+>>>>>>> a9617404f70324002eac31c79807914fc2c3fa27
 											if($isSuscribed){
 												echo "<a href='actions/action_exitevent.php?event=";
 												echo $donnees['name'];
@@ -160,6 +170,11 @@ else{
 											}
 											echo "</a>";
 										}
+<<<<<<< HEAD
+=======
+
+										
+>>>>>>> a9617404f70324002eac31c79807914fc2c3fa27
 										?>
 									</li>
 
