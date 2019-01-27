@@ -12,12 +12,12 @@ require '../db_connexion/pdo.php';
         $user=$req->fetch();
 
 
-        $req2 = $bdd->prepare("SELECT * FROM votes WHERE id_evenement=".$_GET['comid']." AND id_users=".$user['id']."");
+        $req2 = $bdd->prepare("SELECT * FROM vote WHERE id_evenement=".$_GET['comid']." AND id_users=".$user['id']."");
         $req2->execute();
         
         $user2=$req2->fetch();
 
-        print_r($user2);
+        
 
         
 

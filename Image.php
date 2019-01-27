@@ -14,7 +14,8 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<style>
 		
 		
@@ -54,163 +55,51 @@
 
 		</style>
 	</head>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-<div class="container" style = "margin-top:100px;">
-	<div class="row">
-		<div class="row">
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
-                   data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                   data-target="#image-gallery">
-                    <img class="img-thumbnail"
-                         src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                         alt="Another alt text">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
-                   data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                   data-target="#image-gallery">
-                    <img class="img-thumbnail"
-                         src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                         alt="Another alt text">
-                </a>
-            </div>
+    	<!-- header -->
 
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
-                   data-image="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                   data-target="#image-gallery">
-                    <img class="img-thumbnail"
-                         src="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                         alt="Another alt text">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Test1"
-                   data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                   data-target="#image-gallery">
-                    <img class="img-thumbnail"
-                         src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                         alt="Another alt text">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
-                   data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                   data-target="#image-gallery">
-                    <img class="img-thumbnail"
-                         src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                         alt="Another alt text">
-                </a>
-            </div>
-
-
-
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
-                   data-image="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                   data-target="#image-gallery">
-                    <img class="img-thumbnail"
-                         src="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                         alt="Another alt text">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
-                   data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                   data-target="#image-gallery">
-                    <img class="img-thumbnail"
-                         src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                         alt="Another alt text">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
-                   data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                   data-target="#image-gallery">
-                    <img class="img-thumbnail"
-                         src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                         alt="Another alt text">
-                </a>
-            </div>
-
-
-
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
-                   data-image="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                   data-target="#image-gallery">
-                    <img class="img-thumbnail"
-                         src="https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                         alt="Another alt text">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
-                   data-image="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                   data-target="#image-gallery">
-                    <img class="img-thumbnail"
-                         src="https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                         alt="Another alt text">
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title="Im so nice"
-                   data-image="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                   data-target="#image-gallery">
-                    <img class="img-thumbnail"
-                         src="https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                         alt="Another alt text">
-                </a>
-            </div>
-        </div>
-
-
-        <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="image-gallery-title"></h4>
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <img id="image-gallery-image" class="img-responsive col-md-12" src="">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i class="fa fa-arrow-left"></i>
-                        </button>
-
-                        <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i class="fa fa-arrow-right"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-	</div>
-</div>
+	
 
 <body>
-<section>
+	
+<script>
 
-	<!-- header -->
+ $(document).ready(function (e) {
+$("#uploadimage").on('submit',(function(e) {
+e.preventDefault();
+$("#message").empty();
+$('#loading').show();
+$.ajax({
+url: "ajax_php_file.php", // Url to which the request is send
+type: "POST",             // Type of request to be send, called as method
+data: new FormData(this), // Data sent to server, a set of key/value pairs (i.e. form fields and values)
+contentType: false,       // The content type used when sending data to the server.
+cache: false,             // To unable request pages to be cached
+processData:false,        // To send DOMDocument or non processed data file it is set to false
+success: function(data)   // A function to be called if request succeeds
+{
+	$('#loading').hide();
+	$("#message").html(data);
+}
+});
+}));
+ });
+</script>
 
-		<?php include("includes/header.php"); ?>
-	<!-- end header -->
 <?php 
 		$req = $bdd->prepare("SELECT * FROM users WHERE `users`.`session_id` = :session_id AND `users`.`first_name` = :pseudo");
 		$req->execute(array(':session_id' => $_COOKIE['session_id'], ':pseudo' => $_COOKIE['pseudo']));
-		$data = $req->fetch(); 
-
-		$requete = $bdd->prepare("SELECT count(*) as total from notifications where deprecated !=1");
-		$requete->execute();
-		$nombre_notifications = $requete->fetch(PDO::FETCH_OBJ);
-		$nombre = $nombre_notifications->total;
+        $data = $req->fetch(); 
+        
+        $req2 = $bdd->prepare("SELECT id_event,image FROM images where id_event=".$_GET['eventid']);
+        $req2->execute();
+        $data2 = $req2->fetchAll();
+		
 	?>
 
-
-				<section id="four" class="wrapper style1 special fade-up">
+    	<?php include("includes/header.php"); ?>
+	<!-- end header -->
+<section>
+    <section id="four" class="wrapper style1 special fade-up">
 					<div class="container">
 						<header class="major">
 							<?php
@@ -222,71 +111,61 @@
 					</div>
 				</section>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-4" style="margin-bottom: 50px;">
+            <input type="submit" class="special" value="Telecharger toutes les photos" onclick="downloadAll(window.links)">
+        </div>
+        <div class="col-md-6">
+            <form id="uploadimage" action="" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="file" name="file" id="file" required placeholder="Ajouter une image ">
+                    </div>
+					<input type="hidden" name="event" value="<?php echo $_GET['eventid']; ?>" >
+                    <div class="col-md-3">
+                        <input type="submit" value="Ajouter une image " class="special">
+                    </div>
+                </div>
+            </form>
+			<h4 id='loading' >loading..</h4>
+			<div id="message"></div>
+        </div>
+
+    </div>
+</div>
+<div class="container" >
+  <?php if($data['pro'] == 1) { ?>
+                        
+                            
+                        
+                    <?php } ?>
+	<div class="row">
+		<div class="row" id="allImages">
+        <?php foreach($data2 as $value ) { 
+           echo "<div class='col-lg-3 col-md-4 col-xs-6 thumb'>
+                <a download class='thumbnail' href='".$value['image']."' data-image-id='' data-toggle='modal' data-title=''
+                   data-image='".$value['image']."'
+                   data-target='#image-gallery'>
+                     <img class='img-thumbnail'
+                         src='".$value['image']."'
+                         alt='Another alt text'>
+                </a>
+            </div>";
+         } ?>
 
 
-	<form method="post" action="actions/action_signup.php">
-		<div class="row uniform 50%">
-			<div class="4u"></div>
-			<div class="4u$ 12u$(xsmall)">
-				
-			<div class="4u"></div>
-			
-			<div class="4u"></div>
-			
-			<div class="4u"></div>
-		
-			<div class="4u"></div>
-			<div class="4u$">
-				<ul class="actions">
-					<li><input type="submit" value="Télécharger" class="special" /></li>
-
-				</ul>
-			</div>
-		</div>
-	</form>
-
-
-</section>
-<?php
-	if (!empty($_GET['error'])) {
-		if($_GET["error"]==="emptyPost"){
-			echo "Please fill all the form.";
-		}
-		elseif($_GET["error"]==="samePassword"){
-			echo "Password not confirmed";
-		}
-		elseif (($_GET["error"]==="bddExist")) {
-			echo "Username or email already exists";
-		}
-	}
-?>
-
-<?php
-	if (!empty($_GET['error2'])) {
-		if($_GET["error2"]==="emptyPost"){
-			echo "Please fill all the form.";
-		}
-		elseif($_GET["error2"]==="WrongPassword"){
-			echo "Username or password incorrect";
-		}
-
-	}
-?>
-
-<?php if($data['bde'] == 1) { ?>
-<section>
-
+        
+	</div>
+</div>
 
 
 	
-	
-
-
-
 </section>
 
 
-<?php } ?>
+
+
 
 			<!-- Footer -->
 				<?php include("includes/footer.php"); ?>
@@ -302,5 +181,31 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>	
+			<script src="assets/js/main.js"></script>
+            
+			
+            <script>
+
+                var links =  $(".thumbnail");
+    
+                function downloadAll(urls) {
+                
+
+                  
+                    
+
+                    
+                    
+                 for (var i = 0; i < urls.length; i++) {
+                       
+                       urls[i].click();
+                        
+                    }
+                
+                
+                console.log(urls);
+                
+                }
+            </script>
+            
 </body>

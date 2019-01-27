@@ -20,6 +20,8 @@ require 'db_connexion/pdo.php'
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body class="landing">
+
+	
 		<div id="page-wrapper">
 
 
@@ -82,7 +84,7 @@ require 'db_connexion/pdo.php'
 						</header>
 						<p>". $donnees['description'] ."</p>
 						<ul class=\"actions\">
-							<a href='actions/addLike.php?comid=".$donnees['id']."'>";
+							<a class='member' href='actions/addLike.php?comid=".$donnees['id']."'>";
 							if(is_null($like['id_users'])){
 										echo "<center><img style=\"width: 20%; height: 20%;\" id='love".$donnees['id']."' src='images/emptyheart.jpg'  alt='' onclick='myLove(".$donnees['id'].")'/></center>";
 									}
