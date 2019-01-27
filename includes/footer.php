@@ -7,6 +7,6 @@
 					<ul class="copyright">
 						<li>&copy; BDECesi. All rights reserved.</li>
 						<li>Contact us</li>
-						<li>Mention Légales</li>
-					</ul>
+						<li><a href="Mention_legale.html">Mention Légales</a></li>
+							</ul>
 				</footer>
