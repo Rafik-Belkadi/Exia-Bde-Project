@@ -60,7 +60,7 @@
 							<div class="4u"></div>
 							<div class="4u$">
 							<form action="index.php" method="post">
-								<input style="margin-left:10px" type="checkbox" name="Mention-Légale[]" value="ok"> Acceptez condition du réglement <br>
+								<input required style="margin-left:10px" type="checkbox" name="Mention" value="ok"> Acceptez condition du réglement <br>
 										<a href="Mention_legale.html">Mention Légales</a>
 										</div>
 					

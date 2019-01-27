@@ -8,7 +8,7 @@
     <body>
     
         <?php
-    if (!empty($_POST['uname']) AND !empty($_POST['password'])) // Si le mot de passe est bon
+    if (!empty($_POST['uname']) AND !empty($_POST['password']) AND !empty($_POST['Mention']) ) // Si le mot de passe est bon
 	{
 	   
     	$req = $bdd->prepare('SELECT * FROM Users');
