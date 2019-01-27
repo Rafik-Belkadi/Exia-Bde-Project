@@ -54,12 +54,23 @@
 							<div class="4u"></div>
 							<div class="">
 								<input type="password" name="confirm_password" placeholder="Confirm Password"/>
-							</div>
+								
 
+							</div>
+							<div class="4u"></div>
+							<div class="4u$">
+							<form action="index.php" method="post">
+								<input style="margin-left:10px" type="checkbox" name="Mention-Légale[]" value="ok"> Acceptez condition du réglement <br>
+										<a href="Mention_legale.html">Mention Légales</a>
+										</div>
+					
 							<div class="4u"></div>
 							<div class="4u$">
 								<ul class="actions">
-									<li><input type="submit" value="Submit" class="special" /></li>
+							
+					<li><input type="submit" value="Submit" class="special" /></li>
+
+									
 
 								</ul>
 							</div>
@@ -67,6 +78,8 @@
 					</form>
 						
 					<?php
+					
+					
 						if (!empty($_GET['error'])) {
 							if($_GET["error"]==="emptyPost"){
 								echo "Please fill all the form.";
@@ -77,6 +90,7 @@
 							elseif (($_GET["error"]==="bddExist")) {
 								echo "Username or email already exists";
 							}
+							
 						}
 					?>
 			</div>
