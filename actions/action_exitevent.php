@@ -32,7 +32,7 @@
             
         $req->closeCursor();
 
-       header('Location: ../event.php?event='.$_GET['event'].'&'.'error=removed');
+       header('Location: ../event.php?event='.$_GET['event'].'&'. 'error=removed&isPasse='.$donnees['past']);
 
 
 
@@ -41,7 +41,7 @@
 
     }
     else{
-    	header('Location: ../event.php?event='.$_GET['event'].'&'.'error=notconnected');
+    	header('Location: ../event.php?event='.$_GET['event'].'&'. 'error=notconnected&isPasse='.$donnees['past']);
     }
 
     ?>

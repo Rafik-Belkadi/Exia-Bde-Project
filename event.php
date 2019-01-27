@@ -115,10 +115,12 @@ else{
 			
 			<?php
 
-			$req = $bdd->prepare("SELECT * FROM evenement WHERE name=:event");
+			$req = $bdd->prepare("SELECT * FROM evenement WHERE id=:event");
 			$req->execute(array(':event' => $_GET['event']));
 
-			$donnees = $req->fetch()
+			$donnees = $req->fetch();
+
+			$past = $donnees['past'];
 			?>
 
 			<!-- Four -->
@@ -141,20 +143,20 @@ else{
 										
 										if($_GET['isPasse'] == 1 && !empty($user)){
 											echo "<a href='image.php?eventid=".$donnees["id"]."&";
-												echo $donnees['name'];
+												echo $donnees['id'];
 												echo "' class='button fit big'>";
 												echo "Voir toutes les Images";
 												echo "</a>";
 										}else if(empty($_GET['isPasse'])){
 											if($isSuscribed){
 												echo "<a href='actions/action_exitevent.php?event=";
-												echo $donnees['name'];
+												echo $donnees['id'];
 												echo "' class='button fit big'>";
 												echo "se désinscrire";
 											}
 											else{
 												echo "<a href='actions/action_gotoevent.php?event=";
-												echo $donnees['name'];
+												echo $donnees['id'];
 												echo "' class='button fit big'>";
 												echo "S'inscrire";
 											}
@@ -232,7 +234,7 @@ else{
 										<img src='".$donnees['images']."' class='imgcomm' alt='' />
 									</div>
 									<div>
-										<a href='actions/action_lovecomment.php?event=".$_GET['event']."&comid=".$donnees['id']."'>";
+										<a href='actions/action_lovecomment.php?event=".$_GET['event']."&comid=".$donnees['id']."'&isPasse=".$past.">";
 										if(is_null($like['id_user'])){
 											echo "<img id='love".$donnees['id']."' src='images/emptyheart.jpg' class='likes' alt='' onclick='myLove(".$donnees['id'].")'/>";
 										}
@@ -257,7 +259,7 @@ else{
 			<!-- Add comment -->
 
 
-			<?php echo "<form method='post' action='actions/action_comment.php?event=".$_GET['event']."'>";  ?>
+			<?php echo "<form method='post' action='actions/action_comment.php?event=".$_GET['event']. "&isPasse=" . $past . "'>";  ?>
 				<div class="row uniform mm 50%">
 					<div class="10u 12u$(xsmall)">
 						<input type="text" name="comment" id="comment" value="" placeholder="your comment here" />

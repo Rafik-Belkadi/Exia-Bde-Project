@@ -8,7 +8,7 @@
     <body>
     <?php
 
-    $req = $bdd->prepare("SELECT * FROM evenement WHERE name=:event");
+    $req = $bdd->prepare("SELECT * FROM evenement WHERE id=:event");
     $req->execute(array(':event' => $_GET['event']));
 
     $donnees = $req->fetch();
@@ -32,7 +32,7 @@
             
         $req->closeCursor();
 
-       header('Location: ../event.php?event='.$_GET['event'].'&'.'error2=commented');
+       header('Location: ../event.php?event='.$_GET['event'].'&'.'error2=commented&isPasse='.$_GET['isPasse']);
 
 
 
@@ -41,7 +41,7 @@
 
     }
     else{
-    	header('Location: ../event.php?event='.$_GET['event'].'&'.'error2=notconnected');
+    	header('Location: ../event.php?event='.$_GET['event'].'&'.'error2=notconnected&isPasse='.$_GET['isPasse']);
     }
 
     ?>

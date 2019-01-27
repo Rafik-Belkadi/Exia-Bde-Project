@@ -103,7 +103,9 @@ require 'db_connexion/pdo.php'
 				$idd=$idd+1;
 				
 			}
-		} echo 'Vous devez être connecté';
+		}else{
+			echo 'Vous devez être connecté';
+		} 
 
 			$req->closeCursor();
 			 ?>

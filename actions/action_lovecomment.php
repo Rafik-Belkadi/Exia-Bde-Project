@@ -42,6 +42,6 @@ require '../db_connexion/pdo.php';
 
 
 
- header("Location: ../event.php?event=".$_GET['event']);
+ header("Location: ../event.php?event=".$_GET['event'].'&isPasse='.$_GET['isPasse']);
 
  ?>
