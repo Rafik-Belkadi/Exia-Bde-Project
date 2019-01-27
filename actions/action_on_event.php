@@ -41,6 +41,19 @@ if($_POST['sub_button']){
         header('Location: ../event_admin.php');
 
 
+    }else if($_POST['event_upgrade']){
+
+        $id_du_mec = $_POST['event_upgrade'];
+
+        $req2 = $bdd->prepare("UPDATE evenement SET month_event=0 ");
+        $req2->execute();
+
+        $req = $bdd->prepare("UPDATE evenement SET month_event=1 WHERE id=" . $id_du_mec . "");
+        $req->execute();
+
+        
+
+        header('Location: ../event_admin.php');
     }
 
 

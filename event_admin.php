@@ -49,6 +49,7 @@
 					<th scope="col">Prix</th>
 					<th scope="col">Date</th>
 					<th scope="col">Votes</th>
+					<th scope="col">Evenement du mois</th>
 					<th scope="col">Participation</th>
                     <th scope="col">Action</th>
 
@@ -69,6 +70,7 @@
 								<td>'.$value['price'].' </td>
 								<td>'.$value['metting'].' </td>
 								<td>'.$value['nbr_vote'].' </td>
+                                <td><button type="submit"  name="event_upgrade" value="'.$value['id']. '" class="button" style="background-color: #4286f4;" > Upgrade <i class="fa fa-arrow-right"></i> </button></td>
                                 <td><button type="submit"  name="sub_button" value="'.$value['id'].'" class="button" style="background-color: #008416;" > Télécharger <i class="fa fa-arrow-right"></i> </button></td>
                                 <td><button type="submit"  name="supp_button" value="'.$value['id'].'" class="button" style="background-color: #e21402;" > Supprimer <i class="fa fa-arrow-right"></i> </button></td>
 									</tr>';
