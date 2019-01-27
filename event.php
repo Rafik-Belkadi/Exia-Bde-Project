@@ -139,7 +139,7 @@ else{
 										<?php 
 										
 										
-										if($_GET['isPasse'] == 1){
+										if($_GET['isPasse'] == 1 && !empty($user)){
 											echo "<a href='image.php?eventid=".$donnees["id"]."&";
 												echo $donnees['name'];
 												echo "' class='button fit big'>";
@@ -200,56 +200,58 @@ else{
 				
 				
 				
-				
-				while ($donnees = $req->fetch())
-				{
-					$requ = $bdd->prepare('SELECT first_name, profile_pic, id FROM users where id=:comUserID');
-					$requ->execute(array(':comUserID' => $donnees['id_users']));
-					$u=$requ->fetch();
+				if(!empty($user)){
+					while ($donnees = $req->fetch())
+					{
+						$requ = $bdd->prepare('SELECT first_name, profile_pic, id FROM users where id=:comUserID');
+						$requ->execute(array(':comUserID' => $donnees['id_users']));
+						$u=$requ->fetch();
 
-					$r=$bdd->prepare('SELECT * FROM likes WHERE id_user=:userID AND id_commentaires=:commentID');
-					$r->execute(array(':commentID' => $donnees['id'], ':userID' => $user['id'] ));
-					$like=$r->fetch();
-				
-					if($donnees['undesirable'] != 1){
-					echo "
-					<div class='ninjaflex'>
-						<div class='boxcomm'>
-							<div class='ninjaflex2'>
-								<div class='boximgpic'>
-									<img src='".$u['profile_pic']."' class='profilpic' alt='' />
+						$r=$bdd->prepare('SELECT * FROM likes WHERE id_user=:userID AND id_commentaires=:commentID');
+						$r->execute(array(':commentID' => $donnees['id'], ':userID' => $user['id'] ));
+						$like=$r->fetch();
+					
+						if($donnees['undesirable'] != 1){
+						echo "
+						<div class='ninjaflex'>
+							<div class='boxcomm'>
+								<div class='ninjaflex2'>
+									<div class='boximgpic'>
+										<img src='".$u['profile_pic']."' class='profilpic' alt='' />
+									</div>
+									<div>
+										<p style='text-align: justify;'><b>".$u['first_name']." : </b>".$donnees['comments']."</p>";
+										if($user['bde'] == 1 ){
+											echo '<a href="actions/action_supprimer_commentaire.php?id='.$donnees['id'].'"><button class="btn"><i class="fa fa-trash"></i></button></a>';
+										}else if($user['pro'] == 1){
+											echo '<a href="signaler_commentaire.php?id='.$donnees['id'].'"> <button class="jaune"><i class="fa fa-warning"></i></button></a><a href="'.$donnees['images'].'" download> <button class="bleu"><i class="fa fa-download"></i></button></a>';
+										}
+										echo "
+									</div>
+									<div class='boximgcomm'>
+										<img src='".$donnees['images']."' class='imgcomm' alt='' />
+									</div>
+									<div>
+										<a href='actions/action_lovecomment.php?event=".$_GET['event']."&comid=".$donnees['id']."'>";
+										if(is_null($like['id_user'])){
+											echo "<img id='love".$donnees['id']."' src='images/emptyheart.jpg' class='likes' alt='' onclick='myLove(".$donnees['id'].")'/>";
+										}
+										else{ 
+											echo "<img id='love".$donnees['id']."' src='images/fullheart.jpg' class='likes' alt='' onclick='myLove(".$donnees['id'].")'/>";
+										}
+										
+										echo "
+										
+										</a>
+									</div>
 								</div>
-								<div>
-									<p style='text-align: justify;'><b>".$u['first_name']." : </b>".$donnees['comments']."</p>";
-									if($user['bde'] == 1 ){
-										echo '<a href="actions/action_supprimer_commentaire.php?id='.$donnees['id'].'"><button class="btn"><i class="fa fa-trash"></i></button></a>';
-									}else if($user['pro'] == 1){
-										echo '<a href="signaler_commentaire.php?id='.$donnees['id'].'"> <button class="jaune"><i class="fa fa-warning"></i></button></a><a href="'.$donnees['images'].'" download> <button class="bleu"><i class="fa fa-download"></i></button></a>';
-									}
-									echo "
-								</div>
-								<div class='boximgcomm'>
-									<img src='".$donnees['images']."' class='imgcomm' alt='' />
-								</div>
-								<div>
-									<a href='actions/action_lovecomment.php?event=".$_GET['event']."&comid=".$donnees['id']."'>";
-									if(is_null($like['id_user'])){
-										echo "<img id='love".$donnees['id']."' src='images/emptyheart.jpg' class='likes' alt='' onclick='myLove(".$donnees['id'].")'/>";
-									}
-									else{ 
-										echo "<img id='love".$donnees['id']."' src='images/fullheart.jpg' class='likes' alt='' onclick='myLove(".$donnees['id'].")'/>";
-									}
-									
-									echo "
-									
-									</a>
-								</div>
-							</div>
-						</div> 
-					</div>";
+							</div> 
+						</div>";
+						}
 					}
+				}else {
+					echo 'Vous devez vous connecté pour visionner et poster des commentaires';
 				}
-
 			?>
 
 			<!-- Add comment -->

@@ -41,7 +41,7 @@
 
     }
     else{
-    	header('Location: ../event.php?event='.$_GET['event'].'&'.'error=notconnected');
+    	header('Location: ../event.php?event='.$_GET['event'].'&'. 'error=notconnected&isPasse='.$donnees['past'] );
     }
 
     ?>
