@@ -79,10 +79,11 @@ require 'db_connexion/pdo.php'
 			<!-- Header -->
 				<?php include("includes/header.php"); ?>
 			<!-- Header -->
-				<?php 
+				<?php if(!empty($_COOKIE['session_id']) && !empty($_COOKIE['pseudo'])){
 					$lizom = $bdd->prepare("SELECT * FROM users WHERE `users`.`session_id` = :session_id AND `users`.`first_name` = :pseudo");
 					$lizom->execute(array(':session_id' => $_COOKIE['session_id'], ':pseudo' => $_COOKIE['pseudo']));
-					$data = $lizom->fetch(); 
+					$data = $lizom->fetch();
+				} 
 				 ?>
 			<!-- Banner -->
 				<section id="categories">
@@ -103,7 +104,7 @@ require 'db_connexion/pdo.php'
 				</div>
 			</form>
 
-				<?php  if($data['bde'] == 1 ){ ?>
+				<?php  if (!empty($data) && $data['bde'] == 1 ){ ?>
 					<a href="ajouter_produit.php" class="float"><i class="fa-plus fa my-float"></i></a>
 				<?php } ?>
 			<!-- Populaire -->
@@ -121,7 +122,7 @@ require 'db_connexion/pdo.php'
 								$count=0;
 								while ($v = $product_req->fetch())
 								{
-									if($data['bde'] == 1){
+									if(!empty($data) && $data['bde'] == 1){
 										$count+=1;
 										echo '<section class="4u 6u(medium) 12u$(xsmall)"><img class="nigga" src="'.$v['picture'].'"><h3>'. $v['name'] .' '.$v['price'].'$</h3><p>'. $v['description'] .'</p><ul class="actions small"><li><a href="actions/ajoutprodpanier.php?idprod=', $v['id'] ,'" class="button special small">Acheter</a></li><li><a href="actions/action_supprimer_produit.php?idprod=', $v['id'] ,'" class="button special small">Supprimer</a></li></ul></section>';
 										if ($count>=3) {

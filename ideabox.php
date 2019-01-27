@@ -62,7 +62,7 @@ require 'db_connexion/pdo.php'
 			$idd=2;
 
 			
-
+			if(!empty($user)){
 			while ($donnees = $req->fetch())
 			{
 				$r=$bdd->prepare('SELECT * FROM vote WHERE id_users=:userID AND id_evenement=:commentID');
@@ -103,7 +103,7 @@ require 'db_connexion/pdo.php'
 				$idd=$idd+1;
 				
 			}
-			
+		} echo 'Vous devez être connecté';
 
 			$req->closeCursor();
 			 ?>
