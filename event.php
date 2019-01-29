@@ -23,7 +23,7 @@ if (!empty($_COOKIE['pseudo']) AND !empty($_COOKIE['session_id'])){
     $user=$req->fetch();
 
 
-    $req = $bdd->prepare("SELECT * FROM evenement WHERE name=:event");
+    $req = $bdd->prepare("SELECT * FROM evenement WHERE id=:event");
     $req->execute(array(':event' => $_GET['event']));
     $donnees = $req->fetch();
 

@@ -29,7 +29,7 @@ require 'db_connexion/pdo.php'
 			position:fixed;
 			width:60px;
 			height:60px;
-			bottom:40px;
+			bottom:60px;
 			right:40px;
 			background-color:#E44C65;
 			color:#FFF;
@@ -37,6 +37,7 @@ require 'db_connexion/pdo.php'
 			text-align:center;
 			box-shadow: 2px 2px 3px #000000;
 			z-index: 100;
+			margin-bottom: 40px;
 		}
 
 		.floating:hover{
@@ -59,6 +60,7 @@ require 'db_connexion/pdo.php'
   			visibility: hidden;
 			-webkit-transition: opacity 600ms, visibility 600ms;
  			transition: opacity 600ms, visibility 600ms;
+			 margin-bottom: 40px;
 		}
 
 		#pdf:hover{

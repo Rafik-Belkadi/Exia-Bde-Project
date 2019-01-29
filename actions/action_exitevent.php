@@ -8,7 +8,7 @@
     <body>
     <?php
 
-    $req = $bdd->prepare("SELECT * FROM evenement WHERE name=:event");
+    $req = $bdd->prepare("SELECT * FROM evenement WHERE id=:event");
     $req->execute(array(':event' => $_GET['event']));
 
     $donnees = $req->fetch();
