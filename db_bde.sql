@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 22 jan. 2019 à 11:21
+-- Généré le :  mar. 29 jan. 2019 à 11:17
 -- Version du serveur :  5.7.23
 -- Version de PHP :  5.6.38
 
@@ -37,7 +37,15 @@ CREATE TABLE IF NOT EXISTS `basket` (
   PRIMARY KEY (`id`),
   KEY `FK_basket_id_products` (`id_products`),
   KEY `FK_basket_id_users` (`id_users`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `basket`
+--
+
+INSERT INTO `basket` (`id`, `tot`, `id_products`, `id_users`) VALUES
+(1, 1, 1, 7),
+(2, 1, 13, 11);
 
 -- --------------------------------------------------------
 
@@ -71,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   PRIMARY KEY (`id`),
   KEY `FK_commentaires_id_users` (`id_users`),
   KEY `FK_commentaires_id_evenement` (`id_evenement`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `commentaires`
@@ -81,12 +89,13 @@ INSERT INTO `commentaires` (`id`, `likes`, `comments`, `undesirable`, `images`, 
 (1, NULL, 'wow i love this event ! This iis a foto of me last year :D', NULL, 'https://obstacle.fr/wp-content/uploads/2017/02/2017-Color-Obstacle-Rush.jpg', 3, 2),
 (5, NULL, 'lol', NULL, 'https://wallpapersite.com/images/wallpapers/moon-4096x2304-planets-clouds-4k-9215.jpg', 3, 1),
 (6, NULL, 'Wow nice <3', NULL, '', 1, 2),
-(7, NULL, 'zeb', 1, '', 5, 1),
 (8, NULL, 'zeb', 1, 'images/zeb.jpg', 5, 1),
 (9, NULL, 'Nique soi', 1, 'images/zeb.jpg', 5, 4),
 (10, NULL, 'Nique soi', NULL, 'images/zeb.jpg', 5, 4),
 (11, NULL, 'Nique soi', NULL, 'images/zeb.jpg', 5, 4),
-(12, NULL, 'Nique soi', NULL, 'images/zeb.jpg', 5, 4);
+(12, NULL, 'Nique soi', NULL, 'images/zeb.jpg', 5, 4),
+(13, NULL, 'k', 1, '', 5, 1),
+(14, NULL, 'ebola frr', 1, '', 11, 1);
 
 -- --------------------------------------------------------
 
@@ -110,17 +119,44 @@ CREATE TABLE IF NOT EXISTS `evenement` (
   `past` tinyint(1) DEFAULT NULL,
   `mark` float DEFAULT NULL,
   `id_users` int(11) NOT NULL,
+  `month_event` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `evenement`
 --
 
-INSERT INTO `evenement` (`id`, `name`, `description`, `price`, `nbr_vote`, `metting`, `recurrent`, `picture`, `undesirable`, `evenement`, `nbr_sign`, `past`, `mark`, `id_users`) VALUES
-(1, 'ACDC Concert', 'Petit concert trankilou de ACDC, ça va être de la balle. Places à moitié prix pour tous les exars !! Let\'s go onto the higway to heellll', '20.00', 220, '2018-06-05', 0, 'images/acdc.jpg', 0, 1, 45, 0, NULL, 3),
-(2, 'Color Obstacle rush', 'Un course colorée avec plein de couleur et de trucs et d\'obstacles et c\'est trop génial et on kiff tous le bon son et ya le subway a côté et toussatoussa', '37.00', 34, '2018-04-19', 1, 'images/color.jpg', 0, 1, 34, 0, NULL, 5),
-(4, 'Soirée parrainage', 'Vous voulez un parrain ? Vous n\'avez pas de parrain ? Vous avez pas eu de soirée l\'année dernière ? Cette soirée est faite pour vous ! venez avoir un parrain qui vous parlera surement plus de l\'année !!', '10.00', 56, '2018-04-28', 1, 'images/parrain.jpg', 0, 1, 45, 0, NULL, 2);
+INSERT INTO `evenement` (`id`, `name`, `description`, `price`, `nbr_vote`, `metting`, `recurrent`, `picture`, `undesirable`, `evenement`, `nbr_sign`, `past`, `mark`, `id_users`, `month_event`) VALUES
+(1, 'ACDC Concert', 'Petit concert trankilou de ACDC, ça va être de la balle. Places à moitié prix pour tous les exars !! Let\'s go onto the higway to heellll', '20.00', 220, '2018-06-05', 1, 'images/acdc.jpg', 0, 1, 45, 1, NULL, 3, 1),
+(2, 'Color Obstacle rush', 'Un course colorée avec plein de couleur et de trucs et d\'obstacles et c\'est trop génial et on kiff tous le bon son et ya le subway a côté et toussatoussa', '37.00', 34, '2018-04-19', 1, 'images/color.jpg', 0, 1, 34, 0, NULL, 5, 0),
+(4, 'Soirée parrainage', 'Vous voulez un parrain ? Vous n\'avez pas de parrain ? Vous avez pas eu de soirée l\'année dernière ? Cette soirée est faite pour vous ! venez avoir un parrain qui vous parlera surement plus de l\'année !!', '10.00', 56, '2018-04-28', 1, 'images/parrain.jpg', 0, 1, 45, 0, NULL, 2, 0),
+(5, 'Bal de promo à l\'avance', 'on va danser', '50.00', 4, '2019-03-15', NULL, 'https://images.pexels.com/photos/1820147/pexels-photo-1820147.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', 0, 1, NULL, 0, NULL, 5, 0),
+(7, 'Nikou dalil v2', 'On va lbézé c ratos', '10.00', 0, '2019-03-16', NULL, 'https://i.ytimg.com/vi/rTFqo81Ci_0/maxresdefault.jpg', 1, 0, NULL, 0, NULL, 5, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `images`
+--
+
+DROP TABLE IF EXISTS `images`;
+CREATE TABLE IF NOT EXISTS `images` (
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `id_event` int(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `images`
+--
+
+INSERT INTO `images` (`id`, `id_event`, `image`) VALUES
+(1, 1, 'images/dw1.jpeg'),
+(2, 1, 'images/dw1.jpeg'),
+(3, 1, 'images/image2.jpg'),
+(4, 1, 'images/c384efb7a8dff8e06b08864a68cafe9b.jpeg');
 
 -- --------------------------------------------------------
 
@@ -140,23 +176,8 @@ CREATE TABLE IF NOT EXISTS `likes` (
 --
 
 INSERT INTO `likes` (`id_commentaires`, `id_user`) VALUES
-(5, 3),
-(4, 3),
-(5, 3),
-(2, 3),
-(1, 1),
-(6, 1),
-(5, 1),
-(3, 1),
-(2, 4),
-(2, 4),
-(2, 4),
-(2, 4),
-(3, 4),
-(3, 4),
-(6, 5),
-(1, 5),
-(5, 5);
+(5, 7),
+(5, 11);
 
 -- --------------------------------------------------------
 
@@ -172,16 +193,17 @@ CREATE TABLE IF NOT EXISTS `notifications` (
   `raison` text NOT NULL,
   `deprecated` tinyint(2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `notifications`
 --
 
 INSERT INTO `notifications` (`id`, `comment_id`, `contenu`, `raison`, `deprecated`) VALUES
-(3, 7, 'zeb', 'psk pd', 0),
 (4, 9, 'Nique soi', 'psk pd', 0),
-(5, 8, 'zeb', 'psk pd', 0);
+(5, 8, 'zeb', 'psk pd', 0),
+(6, 13, 'k', 'kk', 0),
+(8, 14, 'ebola frr', 'psk pd', 0);
 
 -- --------------------------------------------------------
 
@@ -199,7 +221,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `nbr_command` int(11) DEFAULT NULL,
   `picture` varchar(1000) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `products`
@@ -226,7 +248,7 @@ CREATE TABLE IF NOT EXISTS `signin` (
   `id_evenement` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_signin_id_users` (`id_users`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `signin`
@@ -238,7 +260,8 @@ INSERT INTO `signin` (`id`, `id_users`, `id_evenement`) VALUES
 (4, 3, 1),
 (5, 1, 2),
 (6, 1, 2),
-(8, 1, 1);
+(8, 1, 1),
+(9, 7, 5);
 
 -- --------------------------------------------------------
 
@@ -260,22 +283,25 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id_basket` int(11) DEFAULT NULL,
   `id_products` int(11) DEFAULT NULL,
   `profile_pic` varchar(1000) DEFAULT 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Antu_im-invisible-user.svg/2000px-Antu_im-invisible-user.svg.png',
+  `localisation` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_users_id_basket` (`id_basket`),
   KEY `FK_users_id_products` (`id_products`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `first_name`, `hash`, `mail`, `bde`, `pro`, `connected`, `session_id`, `id_basket`, `id_products`, `profile_pic`) VALUES
-(1, 'we vite fait', 'mdr', 'lol', 'niquesoi', 1, 0, 1, '70632964', NULL, NULL, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Antu_im-invisible-user.svg/2000px-Antu_im-invisible-user.svg.png'),
-(2, 'lesinge', 'motoi', 'zz', 'blop@gmail.com', 0, 0, 1, '34256047', NULL, NULL, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Antu_im-invisible-user.svg/2000px-Antu_im-invisible-user.svg.png'),
-(3, 'wa3', 'oklm', 'vv', 'sisimgl', 0, 0, 1, '95013433', NULL, NULL, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Antu_im-invisible-user.svg/2000px-Antu_im-invisible-user.svg.png'),
-(4, 'rafik', 'Ordana123', 'rafikkileur2', 'Ordana1234@gmail.com', 1, 0, 1, '', NULL, NULL, 'p1.jpeg'),
-(5, 'rafik', 'root', 'djvaiko000', 'brafik009@hotmail.Com', 0, 1, 1, '59732096', NULL, NULL, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Antu_im-invisible-user.svg/2000px-Antu_im-invisible-user.svg.png'),
-(6, 'test', 'test', 'test', 'test@gmail.com', 0, 1, 1, '', NULL, NULL, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Antu_im-invisible-user.svg/2000px-Antu_im-invisible-user.svg.png');
+INSERT INTO `users` (`id`, `name`, `first_name`, `hash`, `mail`, `bde`, `pro`, `connected`, `session_id`, `id_basket`, `id_products`, `profile_pic`, `localisation`) VALUES
+(1, 'we vite fait', 'mdr', 'lol', 'niquesoi', 1, 0, 1, '70632964', NULL, NULL, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Antu_im-invisible-user.svg/2000px-Antu_im-invisible-user.svg.png', ''),
+(2, 'lesinge', 'motoi', 'zz', 'blop@gmail.com', 0, 0, 1, '34256047', NULL, NULL, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Antu_im-invisible-user.svg/2000px-Antu_im-invisible-user.svg.png', ''),
+(3, 'wa3', 'oklm', 'vv', 'sisimgl', 0, 0, 1, '95013433', NULL, NULL, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Antu_im-invisible-user.svg/2000px-Antu_im-invisible-user.svg.png', ''),
+(4, 'rafik', 'Ordana123', 'rafikkileur2', 'Ordana1234@gmail.com', 1, 0, 1, '', NULL, NULL, 'images/p1.jpeg', ''),
+(5, 'rafik', 'root', 'djvaiko000', 'brafik009@hotmail.Com', 0, 1, 1, '16449058', NULL, NULL, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Antu_im-invisible-user.svg/2000px-Antu_im-invisible-user.svg.png', ''),
+(6, 'test', 'test', 'test', 'test@gmail.com', 0, 1, 1, '', NULL, NULL, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Antu_im-invisible-user.svg/2000px-Antu_im-invisible-user.svg.png', ''),
+(7, 'Tarkikote', 'Tarkikote', '1234', 'Tarkikote@gmail.Com', 0, 0, 1, '', NULL, NULL, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Antu_im-invisible-user.svg/2000px-Antu_im-invisible-user.svg.png', ''),
+(11, 'newuser', 'newuser', 'Rafik1234', 'newuser@gmail.com', 0, 0, 1, '', NULL, NULL, 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Antu_im-invisible-user.svg/2000px-Antu_im-invisible-user.svg.png', 'Alger');
 
 -- --------------------------------------------------------
 
@@ -290,7 +316,15 @@ CREATE TABLE IF NOT EXISTS `vote` (
   `id_evenement` int(11) NOT NULL,
   PRIMARY KEY (`id`,`id_users`),
   KEY `FK_vote_id_users` (`id_users`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `vote`
+--
+
+INSERT INTO `vote` (`id`, `id_users`, `id_evenement`) VALUES
+(1, 5, 5),
+(3, 11, 6);
 
 --
 -- Contraintes pour les tables déchargées
