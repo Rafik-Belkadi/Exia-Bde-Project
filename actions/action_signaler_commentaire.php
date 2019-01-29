@@ -34,7 +34,7 @@ require '../db_connexion/pdo.php';
                                       WHERE id='.$id_comm.'');
                 $req2->execute();
 
-                header('Location: ../'.$linkback);
+                header('Location: ../'. $redirect);
             
            
           

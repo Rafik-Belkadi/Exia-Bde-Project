@@ -21,7 +21,7 @@
                 }
             }
             if($eventExist){
-                $req = $bdd->prepare('INSERT INTO evenement(name, description, price, nbr_vote, metting, picture, undesirable, evenement, id_users) VALUES (:nom, :description, :price, :nbr_vote, :datee, :picture, :undesirable, :evenement, :id_users)');
+                $req = $bdd->prepare('INSERT INTO evenement(name, description, price, nbr_vote, metting, picture, undesirable, evenement, id_users,past) VALUES (:nom, :description, :price, :nbr_vote, :datee, :picture, :undesirable, :evenement, :id_users,:past)');
 
                 $req->execute(array(
                     ':nom' => $_POST['nom'],
@@ -32,7 +32,8 @@
                     ':picture' => $_POST['picture'],
                     ':undesirable' => '0',
                     ':evenement' => '0',
-                    ':id_users' => '5' 
+                    ':id_users' => '5',
+                    ':past' => '0' 
                 ));
 
                 header('Location: ../ideabox.php');

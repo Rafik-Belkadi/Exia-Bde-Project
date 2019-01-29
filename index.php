@@ -30,7 +30,7 @@
 				<section id="banner">
 					<div class="content">
 						<header>
-							<h2>Bienvenue au bde des Exars gaullois</h2>
+							<h2>Bienvenue au bde des Exars d'Alger</h2>
 							<p>Vous pourrez utiliser ce site pour acheter des goodies, voir la liste <br />
 							des évênements, 
 							y participer, les commenter et bien plus encore.</p>

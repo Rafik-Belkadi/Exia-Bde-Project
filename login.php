@@ -49,6 +49,10 @@
 							</div>
 							<div class="4u"></div>
 							<div class="">
+								<input type="text" name="localisation" id="localisation" value="" placeholder="Centre Cesi Exia" />
+							</div>
+							<div class="4u"></div>
+							<div class="">
 								<input type="password" name="password" placeholder="Password"/>
 							</div>
 							<div class="4u"></div>
@@ -59,7 +63,7 @@
 							</div>
 							<div class="4u"></div>
 							<div class="4u$">
-							<form action="index.php" method="post">
+							
 								<input required style="margin-left:10px" type="checkbox" name="Mention" value="ok"> Acceptez condition du réglement <br>
 										<a href="Mention_legale.html">Mention Légales</a>
 										</div>
@@ -89,6 +93,18 @@
 							}
 							elseif (($_GET["error"]==="bddExist")) {
 								echo "Username or email already exists";
+							}
+							elseif (($_GET["error"]=== "passwordLength")) {
+								echo "Your password must Contain at least 8 digits";
+							}
+							elseif (($_GET["error"]=== "passwordNoNumber")) {
+								echo "Your password must contain at least one number";
+							}
+							elseif (($_GET["error"]=== "passwordCapitalLetter")) {
+								echo "Your password must at least contain one Capital letter";
+							}
+							elseif (($_GET["error"]=== "passwordLowerCase")) {
+								echo "Your password must at least contain one lowercase letter";
 							}
 							
 						}

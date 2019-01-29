@@ -1,6 +1,10 @@
 
 <!DOCTYPE html>
-<?php require '../db_connexion/pdo.php'; ?>
+<?php require '../db_connexion/pdo.php';
+
+if ($_POST['sub_button']) {
+
+?>
 
 <html>
 	<head>
@@ -26,6 +30,7 @@
 
 
 <?php
+
 
 $id_du_mec = $_POST['sub_button'];
 
@@ -88,3 +93,16 @@ $id_du_mec = $_POST['sub_button'];
 			<!--[if lte IE 8]><script src="../assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="../assets/js/main.js"></script>	
 </body>
+
+<?php } else if($_POST['sup']){
+
+	$req = $bdd->prepare("DELETE FROM evenement WHERE id=:id_event");
+	$req->execute([
+		":id_event" => $_POST['sup']
+	]);
+}
+
+	header('Location: ../ideaValidation.php');
+
+
+?>

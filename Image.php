@@ -145,9 +145,9 @@ success: function(data)   // A function to be called if request succeeds
         <?php foreach($data2 as $value ) { 
            echo "<div class='col-lg-3 col-md-4 col-xs-6 thumb'>
                 <a download class='thumbnail' href='".$value['image']."' data-image-id='' data-toggle='modal' data-title=''
-                   data-image='".$value['image']."'
+                   data-image='".$value['image']. "'
                    data-target='#image-gallery'>
-                     <img class='img-thumbnail'
+                     <img style='max-height= 244.995px;' class='img-thumbnail'
                          src='".$value['image']."'
                          alt='Another alt text'>
                 </a>

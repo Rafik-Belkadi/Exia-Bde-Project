@@ -53,7 +53,7 @@ if($_POST['sub_button']){
 
         $req3 = $bdd->prepare("SELECT users.first_name,users.mail,evenement.name FROM users INNER JOIN evenement ON evenement.id_users = users.id where evenement.id = :id_event");
         $req3->execute([
-            "id_event" => $id_du_mec
+            ":id_event" => $id_du_mec
         ]);
 
         $data2 = $req3->fetch(PDO::FETCH_OBJ);

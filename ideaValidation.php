@@ -49,7 +49,8 @@
 					<th scope="col">Prix</th>
 					<th scope="col">Date</th>
 					<th scope="col">Votes</th>
-					<th scope="col">Action</th>
+					<th scope="col">Validation</th>
+					<th scope="col">Suppression</th>
 
                     </tr>
                 </thead>
@@ -68,8 +69,14 @@
 								<td>'.$value['price'].' </td>
 								<td>'.$value['metting'].' </td>
 								<td>'.$value['nbr_vote'].' </td>
-								<td><button type="submit"  name="sub_button" value="'.$value['id'].'" class="button" style="background-color: #008416;" > Confirmer <i class="fa fa-arrow-right"></i> </button></td>
+								<td><button type="submit"  name="sub_button" value="'.$value['id']. '" class="button" style="background-color: #008416;" > Valider <i class="fa fa-arrow-right"></i> </button></td>
+									
+								<td><button type="submit"  name="sup" value="' . $value['id'] . '" class="button" style="background-color: Red;" > Supprimer <i class="fa fa-arrow-right"></i> </button></td>
 									</tr>';
+									
+									
+									
+									
 							
 							?>
 						</form>

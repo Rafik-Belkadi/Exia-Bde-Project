@@ -19,6 +19,36 @@ require 'db_connexion/pdo.php'
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
+	<style>
+	
+	.btn {
+			background-color: #f45042; /* Blue background */
+			border: none; /* Remove borders */
+			color: white; /* White text */
+			padding: 12px 16px; /* Some padding */
+			font-size: 16px; /* Set a font size */
+			cursor: pointer; /* Mouse pointer on hover */
+		}
+
+/* Darker background on mouse-over */
+		.btn:hover {
+		background-color: #ffc74f;
+		}
+		.jaune {
+			background-color: #efae23; /* Blue background */
+			border: none; /* Remove borders */
+			color: white; /* White text */
+			padding: 12px 16px; /* Some padding */
+			font-size: 16px; /* Set a font size */
+			cursor: pointer; /* Mouse pointer on hover */
+		}
+
+/* Darker background on mouse-over */
+		.jaune:hover {
+		background-color: #f92313;
+		}
+	
+	</style>
 	<body class="landing">
 
 	
@@ -54,7 +84,7 @@ require 'db_connexion/pdo.php'
 				$user=$req->fetch();
 			}
 
-			$req = $bdd->prepare("SELECT * FROM evenement WHERE evenement=0");
+			$req = $bdd->prepare("SELECT * FROM evenement WHERE evenement=0 AND undesirable=0");
 			$req->execute();
 
 			$pres="";
@@ -94,7 +124,11 @@ require 'db_connexion/pdo.php'
 									
 									echo "
 									</a> 
-						</ul>
+						</ul>";
+							if ( !empty($user['pro']) AND $user['pro'] == 1) {
+								echo '<a href="actions/action_signaler_idee.php?id=' . $donnees['id'] . '"> <button class="jaune"><i class="fa fa-warning"></i></button></a>';
+							}
+						echo "
 					</div>
 					<a href=\"#". $idd ."\" class=\"goto-next scrolly\">Next</a>
 				</section>";

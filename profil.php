@@ -44,8 +44,8 @@
 			}
 
 				a.special:hover{
-					background-color: #e76278;
-					box-shadow: inset 0 0 0 1px #e44c65;
+					background-color: #f4c242;
+					box-shadow: inset 0 0 0 1px #f4c242;
 					color:  #ffffff !important;
 				}
 
