@@ -1,19 +1,13 @@
 <?php require '../db_connexion/pdo.php'; ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title></title>
-    </head>
-    <body>
     
         <?php
     if (!empty($_POST['uname']) AND !empty($_POST['password']) ) // Si le mot de passe est bon
 	{
+        
 	   
     	$req = $bdd->prepare('SELECT * FROM Users');
             $req->execute();
-
+        
             $userExist = false;
             while ($donnees = $req->fetch())
             {
@@ -22,6 +16,7 @@
                     break;
                 }
             }
+            
         if($userExist){
             $sessionID=strval(rand(100,100000000));
             $req = $bdd->prepare('UPDATE users SET session_id=:sessionID WHERE first_name=:uname');
@@ -34,6 +29,7 @@
             setcookie("session_id", $sessionID,  time() + 365*24*3600, '/');
 
             //$_SESSION['pseudo'] =  $_POST['uname'];
+            
             header('Location: ../connsucc.php');
             
         }
@@ -42,17 +38,12 @@
         }
         
         $req->closeCursor();
-
+        
 
     }
     else{
+        
     	header('Location: ../login.php?error2=emptyPost');
     }
 
     ?>
-    
-    </body>
-</html>
-
-
-

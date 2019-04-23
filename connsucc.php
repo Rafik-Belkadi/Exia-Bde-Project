@@ -55,5 +55,5 @@
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
             <script src="assets/js/main.js"></script>	
             
-            <?php header("refresh:5;url=http://localhost/public/index.php" ); ?>
+            <?php header("refresh:5;url=http://localhost:8888/exiabde/Exia-Bde-Project/" ); ?>
 </body>
